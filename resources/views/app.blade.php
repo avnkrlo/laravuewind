@@ -9,6 +9,8 @@
     @inertiaHead
   </head>
   <body>
-    @inertia
+    <div class="relative flex justify-center min-h-screen items-top sm:items-center">
+        @inertia
+    </div>
   </body>
 </html>
