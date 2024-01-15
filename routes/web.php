@@ -2,7 +2,7 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
+// use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,24 +14,21 @@ use App\Http\Controllers\RegisterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::middleware(['guest'])->group(function () {
-    Route::get('/', function () {
+    Route::get('/', function(){
         return Inertia::render('Login');
+    });
 
-    Route::get('/Register', [RegisterController::class, 'register'])->name('Register.register   ');
+    Route::get('/register', function(){
+        return Inertia::render('Register');
     });
 
     // Route::get('/register', function () {
     //     return Inertia::render('Register');
     // });
-});
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/dashboard', function(){
         return Inertia::render('Dashboard');
     });
-});
 
 
 

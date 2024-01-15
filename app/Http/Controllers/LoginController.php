@@ -7,8 +7,5 @@ use Inertia\Inertia;
 
 class LoginController extends Controller
 {
-    public function register(){
 
-        return Inertia::render('Register');
-    }
 }
