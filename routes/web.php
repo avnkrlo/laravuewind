@@ -2,6 +2,7 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/', function () {
-        return Inertia::render('Login',
-        );
+        return Inertia::render('Login');
+
+    Route::get('/Register', [RegisterController::class, 'register'])->name('Register.register   ');
     });
 
     // Route::get('/register', function () {

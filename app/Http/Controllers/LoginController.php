@@ -7,8 +7,8 @@ use Inertia\Inertia;
 
 class LoginController extends Controller
 {
-    public function registerBtn(){
+    public function register(){
 
-        return Inertia::render('Pages/Register');
+        return Inertia::render('Register');
     }
 }
