@@ -23,7 +23,7 @@ use App\Http\Controllers\RegisterController;
         return Inertia::render('Register');
     });
 
-    Route::post('/submit-register-form', [RegisterController::class, 'registerForm']);
+    Route::post('/submit-register-form', [RegisterController::class, 'registerForm'])->name('registerForm');
 
     // Route::get('/register', function () {
     //     return Inertia::render('Register');

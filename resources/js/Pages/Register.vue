@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="registerForm">
+    <form method="POST" name="registerForm" id="registerForm" @submit.prevent="registerForm" >
         <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
@@ -14,7 +14,7 @@
 
                 <div>
                     <label for="mobile_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone number</label>
-                    <input type="number" v-model="form.mobile_number" id="mobile_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ex. 09876543210" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                    <input type="tel" v-model="form.mobile_number" id="mobile_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ex. 09876543210" pattern="[0-9]{11}" required>
                 </div>
             </div>
 
@@ -36,13 +36,17 @@
             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 REGISTER ACCOUNT
             </button>
-
-            <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">Already have an account?</a>
+            <br>
+            <a href="/" as="button" class="text-blue-600 hover:underline dark:text-blue-500">
+                Already have an account?
+            </a>
         </div>
     </form>
 </template>
 
 <script>
+import { router } from '@inertiajs/vue3';
+
 export default{
     data(){
         return{
@@ -57,8 +61,10 @@ export default{
     },
     methods: {
         registerForm(){
-            this.$inertia.post('/submit-register-form', this.form);
-        }
+            router.post('/submit-register-form', this.form, { preserveState: true });
+        },
+        replace: true
     }
 }
+// console.log(registerForm);
 </script>

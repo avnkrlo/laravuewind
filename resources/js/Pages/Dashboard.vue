@@ -1,6 +1,7 @@
-<script setup>
-</script>
-
 <template>
-    <h5>Hello World</h5>
+
 </template>
+
+<script>
+import AppLayout from "../Shared/Layout.vue"
+</script>
