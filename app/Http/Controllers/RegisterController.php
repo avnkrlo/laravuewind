@@ -34,7 +34,10 @@ class RegisterController extends Controller
         }
         catch(Exception $e){
             DB::rollback();
-            return response()->json(array('error' => 'Something went wrong!'), 422);
+            // return response()->json(array('error' => 'Something went wrong!'), 422);
+            return redirect()->back()->withErrors([
+                'create' => 'Something went wrong!'
+            ]);
         }
     }
 }
